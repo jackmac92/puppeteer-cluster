@@ -4,7 +4,7 @@ import ConcurrencyImplementation, {
 } from "./ConcurrencyImplementation";
 
 import { debugGenerator, timeoutExecute } from "../util";
-const debug = debugGenerator("SingleBrowserImpl");
+const debug = debugGenerator("SingleBrowserConn");
 
 const BROWSER_TIMEOUT = 5000;
 
@@ -18,6 +18,7 @@ export default abstract class SingleBrowserConnection extends ConcurrencyImpleme
 
     public constructor(options: puppeteer.ConnectOptions, puppeteer: any) {
         super(options, puppeteer);
+        debug(`Received Connect Options ${JSON.stringify(options)}`);
     }
 
     private async repair() {
